@@ -7,5 +7,8 @@ import (
 )
 
 func Authentication() gin.HandlerFunc {
-	return fmt.Println("Authentication")
+	return func(ctx *gin.Context) {
+		fmt.Println("Authentication middleware")
+		ctx.Next()
+	}
 }
