@@ -1,0 +1,15 @@
+package routes
+
+import (
+	"restaurent-management/controllers"
+
+	"github.com/gin-gonic/gin"
+)
+
+func OrderItemRoutes(incomingRoutes *gin.Engine) {
+	incomingRoutes.GET("order-items", controllers.GetOrderItems())
+	incomingRoutes.GET("order-items/:order_item_id", controllers.GetOrderItem())
+	incomingRoutes.GET("orderItem-order/:order_id", controllers.GetOrderItemsByOrderID())
+	incomingRoutes.POST("order-items", controllers.CreateOrderItem())
+	incomingRoutes.PATCH("order-items/:order_item_id", controllers.UpdateOrderItem())
+}
